@@ -10,7 +10,7 @@ function ProductsListProvider({ children }) {
 
   const fetchProductsList = () => {
     axios
-      .get(`${backendUrl}productsList`)
+      .get(`${backendUrl}equipments`)
       .then((res) => setProductsList(res.data))
       .catch((err) => console.error(err));
   };
@@ -19,7 +19,7 @@ function ProductsListProvider({ children }) {
     if (!id) return;
 
     axios
-      .get(`${backendUrl}productsList/${id}`)
+      .get(`${backendUrl}equipments/${id}`)
       .then((res) => setSearchedProduct(res.data))
       .catch((err) => console.error(err));
   };
