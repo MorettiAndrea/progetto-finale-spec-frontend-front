@@ -2,12 +2,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import pagine
-import Homepage from "./assets/pages/Homepage";
-import WishListPage from "./assets/pages/WishListPage";
-import ProductsListPage from "./assets/pages/ProductsListPage";
-import DetailPage from "./assets/pages/DetailPage";
-import ComparePage from "./assets/pages/ComparePage";
-import NotFoundPage from "./assets/pages/NotFoundPage";
+import HomePage from "./pages/Homepage.jsx";
+import WishListPage from "./pages/WishListPage";
+import ProductsListPage from "./pages/ProductsListPage";
+import DetailPage from "./pages/DetailPage";
+import ComparePage from "./pages/ComparePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 // altri import
 
@@ -19,7 +19,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<DefaultLayout />}>
-          <Route path={paths.homePage} element={<Homepage />} />
+          <Route path={paths.homePage} element={<HomePage />} />
           <Route path={paths.wishListPage} element={<WishListPage />} />
           <Route path={paths.comparePage} element={<ComparePage />} />
           <Route path={paths.productsListPage} element={<ProductsListPage />} />
