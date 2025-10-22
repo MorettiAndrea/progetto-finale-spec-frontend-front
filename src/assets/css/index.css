@@ -1,3 +1,16 @@
 *{box-sizing: border-box;
-  margin: 0;
-  padding:0;}
+margin: 0;
+padding: 0;}
+
+.nav-link.active {
+color:red !important;
+}
+
+.no-decoration{
+    text-decoration: none;
+    color:black 
+}
+
+.no-decoration:hover{
+    color: red;
+}

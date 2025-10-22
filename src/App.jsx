@@ -18,13 +18,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path={paths.notFoundPage} element={<NotFoundPage />} />
         <Route element={<DefaultLayout />}>
           <Route path={paths.homePage} element={<HomePage />} />
           <Route path={paths.wishListPage} element={<WishListPage />} />
           <Route path={paths.comparePage} element={<ComparePage />} />
           <Route path={paths.productsListPage} element={<ProductsListPage />} />
           <Route path={paths.detailPage} element={<DetailPage />} />
-          <Route path={paths.notFoundPage} element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

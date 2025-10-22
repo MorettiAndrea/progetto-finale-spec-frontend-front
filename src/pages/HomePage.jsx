@@ -1,3 +1,6 @@
+import { useProductsListContext } from "../contexts/productListContext";
+import { useState, useEffect } from "react";
+
 export default function HomePage() {
   return (
     <>
