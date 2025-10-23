@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import pagine
 import HomePage from "./pages/HomePage.jsx";
-import WishListPage from "./pages/WishListPage";
 import ProductsListPage from "./pages/ProductsListPage";
 import DetailPage from "./pages/DetailPage";
 import ComparePage from "./pages/ComparePage";
@@ -30,7 +29,6 @@ export default function App() {
                 <Route path={paths.notFoundPage} element={<NotFoundPage />} />
                 <Route element={<DefaultLayout />}>
                   <Route path={paths.homePage} element={<HomePage />} />
-                  <Route path={paths.wishListPage} element={<WishListPage />} />
                   <Route path={paths.comparePage} element={<ComparePage />} />
                   <Route
                     path={paths.productsListPage}
