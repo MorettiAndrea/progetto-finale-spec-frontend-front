@@ -10,6 +10,8 @@ function ProductsProvider({ children }) {
   const [productsList, setProductsList] = useState([]);
   const [searchedProduct, setSearchedProduct] = useState(null);
 
+  // funzione per recupero prodotti con  parametri searchbar
+
   const fetchProductsList = (searchTerm = "", category = "") => {
     const params = {};
     if (searchTerm) params.search = searchTerm;
@@ -21,6 +23,7 @@ function ProductsProvider({ children }) {
       .catch((err) => console.error(err));
   };
 
+  // funzione per singolo prodotto
   const fetchProductById = (id) => {
     if (!id) return;
 

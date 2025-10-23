@@ -1,9 +1,9 @@
-import { useProductsContext } from "../contexts/ProductsContext";
+import { useSearchBarContext } from "../contexts/SearchBarContext";
 import ProductCard from "../components/cards/ProductCard";
 import { useState } from "react";
 
 export default function HomePage() {
-  const { productsList } = useProductsContext();
+  const { searchedItems } = useSearchBarContext();
 
   // placeholder compare da creare da context
 
@@ -22,7 +22,7 @@ export default function HomePage() {
     <>
       <h1 className="text-center">Lista dei prodotti</h1>
       <div className="row">
-        {productsList.map((p) => (
+        {searchedItems.map((p) => (
           <div className="col-12 col-md-6 col-lg-4 mb-4" key={p.id}>
             <ProductCard
               product={p}

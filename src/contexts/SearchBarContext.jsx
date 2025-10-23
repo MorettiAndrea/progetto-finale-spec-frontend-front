@@ -10,6 +10,8 @@ function SearchBarProvider({ children }) {
   const [searchedCategory, setSearchedCategory] = useState("");
   const [sortOrder, setSortOrder] = useState("");
 
+  //   effect per aggiornare i categoria e nome cercati nella searchbar
+
   useEffect(() => {
     fetchProductsList(searchedTerm, searchedCategory);
   }, [searchedTerm, searchedCategory]);
