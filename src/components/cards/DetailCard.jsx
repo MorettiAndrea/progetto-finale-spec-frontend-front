@@ -1,6 +1,4 @@
 export default function DetailCard({ product, onAddToWishlist, onCompare }) {
-  console.log("Product in card:", product); // Debug
-
   return (
     <div className="card h-100 shadow-sm border-0">
       <img
@@ -17,7 +15,6 @@ export default function DetailCard({ product, onAddToWishlist, onCompare }) {
         <h5 className="card-title">{product.title}</h5>
         <p className="card-text text-muted">{product.category}</p>
 
-        {/* 👇 ECCO IL PREZZO */}
         <p className="card-text fw-bold mb-3 text-success">€{product.price}</p>
 
         <div className="d-flex justify-content-between mb-3">

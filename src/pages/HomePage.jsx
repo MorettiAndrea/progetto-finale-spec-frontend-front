@@ -1,11 +1,15 @@
-import { useProductsListContext } from "../contexts/productListContext";
+import { useProductsContext } from "../contexts/ProductsContext";
 import ProductCard from "../components/cards/ProductCard";
 import { useState } from "react";
 
 export default function HomePage() {
-  const { productsList } = useProductsListContext();
-  const [whisList, setWhisList] = useState([]);
+  const { productsList } = useProductsContext();
+
+  // placeholder compare da creare da context
+
   const [CompareList, setCompareList] = useState([]);
+
+  // placeholder funzioni da importare dai context
 
   function onAddToWishlist(product) {
     setWhisList((prev) => [...prev, product]);
@@ -16,7 +20,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1 className="text-center">Sono la HomePage</h1>
+      <h1 className="text-center">Lista dei prodotti</h1>
       <div className="row">
         {productsList.map((p) => (
           <div className="col-12 col-md-6 col-lg-4 mb-4" key={p.id}>

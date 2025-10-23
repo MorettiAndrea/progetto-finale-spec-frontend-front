@@ -1,16 +1,22 @@
 import axios from "axios";
 import { createContext, useContext, useState, useEffect } from "react";
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-const ProductsListContext = createContext();
-const useProductsListContext = () => useContext(ProductsListContext);
 
-function ProductsListProvider({ children }) {
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+const ProductsContext = createContext();
+const useProductsContext = () => useContext(ProductsContext);
+
+function ProductsProvider({ children }) {
   const [productsList, setProductsList] = useState([]);
   const [searchedProduct, setSearchedProduct] = useState(null);
 
-  const fetchProductsList = () => {
+  const fetchProductsList = (searchTerm = "", category = "") => {
+    const params = {};
+    if (searchTerm) params.search = searchTerm;
+    if (category) params.category = category;
+
     axios
-      .get(`${backendUrl}equipments`)
+      .get(`${backendUrl}equipments`, { params })
       .then((res) => setProductsList(res.data))
       .catch((err) => console.error(err));
   };
@@ -29,7 +35,7 @@ function ProductsListProvider({ children }) {
   }, []);
 
   return (
-    <ProductsListContext.Provider
+    <ProductsContext.Provider
       value={{
         productsList,
         setProductsList,
@@ -40,7 +46,8 @@ function ProductsListProvider({ children }) {
       }}
     >
       {children}
-    </ProductsListContext.Provider>
+    </ProductsContext.Provider>
   );
 }
-export { useProductsListContext, ProductsListProvider };
+
+export { useProductsContext, ProductsProvider };
