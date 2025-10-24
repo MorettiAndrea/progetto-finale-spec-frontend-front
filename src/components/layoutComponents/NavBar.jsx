@@ -45,6 +45,9 @@ export default function Navbar() {
                 Confronta ora
               </NavLink>
             </li>
+            <li className="nav-item">
+              <button className="btn btn-outline-danger">❤️ Wishlist</button>
+            </li>
           </ul>
 
           <form className="d-flex align-items-center gap-2">
