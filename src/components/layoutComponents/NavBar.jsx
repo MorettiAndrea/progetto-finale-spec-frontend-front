@@ -42,7 +42,7 @@ export default function Navbar() {
 
             <li className="nav-item">
               <NavLink className="nav-link" to={paths.comparePage}>
-                Compara i prodotti selezionati
+                Confronta ora
               </NavLink>
             </li>
           </ul>

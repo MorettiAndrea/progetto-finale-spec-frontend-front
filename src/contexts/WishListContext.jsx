@@ -9,6 +9,8 @@ function WishListProvider({ children }) {
 
   const [wishList, setWishList] = useState([]);
 
+  const [showModal, setShowModal] = useState(false);
+
   const wishListToggle = (product) => {
     const findProduct = productsList.find((p) => p.id === product.id);
     if (!findProduct) return;
@@ -23,7 +25,9 @@ function WishListProvider({ children }) {
   };
 
   return (
-    <WishListContext.Provider value={{ wishList, setWishList, wishListToggle }}>
+    <WishListContext.Provider
+      value={{ wishList, setWishList, wishListToggle, showModal, setShowModal }}
+    >
       {children}
     </WishListContext.Provider>
   );
