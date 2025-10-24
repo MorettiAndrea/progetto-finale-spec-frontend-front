@@ -25,3 +25,37 @@ img {
     max-width: 100%;
 }
 
+.d-center{display: flex;
+justify-content: center;
+align-items: center;}
+
+.detail-card {
+  max-width: 400px; 
+  width: 100%;
+  margin: auto;
+}
+
+.detail-card-img {
+ 
+  max-height: 400px;
+ 
+}
+
+
+@media (max-width: 576px) {
+  .detail-card {
+    max-width: 100%;
+    margin: 0.5rem;
+  }
+
+  .detail-card-img {
+    max-height: 250px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .detail-card-img {
+    max-height: 300px;
+  }
+}

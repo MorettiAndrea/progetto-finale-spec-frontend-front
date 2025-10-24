@@ -1,35 +1,35 @@
-export default function DetailCard({ product, onAddToWishlist, onCompare }) {
-  return (
-    <div className="card h-100 shadow-sm border-0">
-      {/* da fixare la card è brutta e l'immagine è gigante*/}
-      <img
-        src={product.image ? product.image : "Nessuna immagine"}
-        className="card-img-top"
-        alt={product.title}
-      />
+<div className="card mb-3 detail-card text-center">
+  <img
+    src={product.image}
+    className="card-img-top detail-card-img"
+    alt={product.title}
+  />
+  <div className="card-body d-flex flex-column align-items-center">
+    <h5 className="card-title">{product.title}</h5>
+    <p className="card-text mb-1">
+      <strong>Brand:</strong> {product.brand}
+    </p>
+    <p className="card-text mb-1">
+      <strong>Categoria:</strong> {product.category}
+    </p>
+    <p className="card-text mb-1">
+      <strong>Materiale:</strong> {product.material}
+    </p>
+    <p className="card-text mb-3">
+      <strong>Prezzo:</strong> €{product.price}
+    </p>
 
-      <div className="card-body d-flex flex-column">
-        <h5 className="card-title">{product.title}</h5>
-        <p className="card-text text-muted">{product.category}</p>
+    <div className="d-flex flex-column gap-2 w-100">
+      <button
+        className="btn btn-outline-danger btn-sm"
+        onClick={onAddToWishlist}
+      >
+        ❤️ Aggiungi alla Wishlist
+      </button>
 
-        <p className="card-text fw-bold mb-3 text-success">€{product.price}</p>
-
-        <div className="d-flex justify-content-between mb-3">
-          <button
-            className="btn btn-outline-danger btn-sm"
-            onClick={onAddToWishlist}
-          >
-            ❤️ Wishlist
-          </button>
-
-          <button
-            className="btn btn-outline-secondary btn-sm"
-            onClick={onCompare}
-          >
-            🔍 Confronta
-          </button>
-        </div>
-      </div>
+      <button className="btn btn-outline-secondary btn-sm" onClick={onCompare}>
+        🔍 Aggiungi alla pagina di confronto
+      </button>
     </div>
-  );
-}
+  </div>
+</div>;
