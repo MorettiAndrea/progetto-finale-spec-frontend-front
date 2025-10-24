@@ -6,7 +6,7 @@ export default function DetailCard({ product, onAddToWishlist, onCompare }) {
         className="card-img-top detail-card-img"
         alt={product.title}
       />
-      <div className="card-body d-flex flex-column">
+      <div className="card-body d-flex flex-column border border-light-subtle grey-bg-card">
         <h5 className="card-title">{product.title}</h5>
         <p className="card-text mb-1">
           <strong>Brand:</strong> {product.brand}
@@ -18,10 +18,10 @@ export default function DetailCard({ product, onAddToWishlist, onCompare }) {
           <strong>Materiale:</strong> {product.material}
         </p>
         <p className="card-text mb-3">
-          <strong>Prezzo:</strong> €{product.price}
+          <strong>Prezzo:</strong> € {product.price}
         </p>
 
-        <div className="d-flex flex-column flex-sm-row gap-2">
+        <div className="d-flex flex-column flex-sm-row gap-2 ">
           <button
             className="btn btn-outline-danger btn-sm flex-fill"
             onClick={onAddToWishlist}
