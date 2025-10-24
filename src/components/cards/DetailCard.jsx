@@ -1,12 +1,9 @@
 export default function DetailCard({ product, onAddToWishlist, onCompare }) {
   return (
     <div className="card h-100 shadow-sm border-0">
+      {/* da fixare la card è brutta e l'immagine è gigante*/}
       <img
-        src={
-          product.image && product.image !== "a"
-            ? product.image
-            : "https://via.placeholder.com/300x200?text=No+Image"
-        }
+        src={product.image ? product.image : "Nessuna immagine"}
         className="card-img-top"
         alt={product.title}
       />

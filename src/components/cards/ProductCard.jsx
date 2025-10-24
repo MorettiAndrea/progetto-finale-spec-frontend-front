@@ -1,29 +1,27 @@
 import { Link } from "react-router-dom";
+import React from "react";
 
-export default function ProductCard({ product, onAddToWishlist, onCompare }) {
+function ProductCard({ product, onAddToWishlist, onCompare }) {
   return (
-    <div className="card h-100 shadow-sm border-1 mx-1">
+    <div className="card h-100 shadow-sm border-light mx-1 rounded-1 bg-light text-dark">
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">
           <strong>Nome prodotto: </strong> {product.title}
         </h5>
-        <p className="card-text text-muted">
-          {" "}
-          <strong>Categoria: </strong>
-          {product.category}
+        <p className="card-text text-secondary mb-3">
+          <strong>Categoria: </strong> {product.category}
         </p>
 
-        <div className="d-flex justify-content-between mb-3">
+        <div className="d-flex flex-column flex-sm-row justify-content-between gap-2 mb-3">
           <button
-            className="btn btn-outline-danger btn-sm"
+            className="btn btn-outline-danger btn-sm flex-grow-1"
             onClick={onAddToWishlist}
           >
-            {/* da modificare la scritta con aggiungi/rimuovi */}
             ❤️ Aggiungi alla Wishlist
           </button>
 
           <button
-            className="btn btn-outline-secondary btn-sm"
+            className="btn btn-outline-secondary btn-sm flex-grow-1"
             onClick={onCompare}
           >
             🔍 Aggiungi alla pagina di confronto
@@ -32,7 +30,7 @@ export default function ProductCard({ product, onAddToWishlist, onCompare }) {
 
         <Link
           to={`/product/${product.id}`}
-          className="btn btn-dark btn-sm w-100 no-decoration"
+          className="btn btn-dark btn-sm w-100 mt-auto"
         >
           Dettagli
         </Link>
@@ -40,3 +38,5 @@ export default function ProductCard({ product, onAddToWishlist, onCompare }) {
     </div>
   );
 }
+
+export default React.memo(ProductCard);

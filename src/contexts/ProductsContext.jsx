@@ -10,8 +10,6 @@ function ProductsProvider({ children }) {
   const [productsList, setProductsList] = useState([]);
   const [searchedProduct, setSearchedProduct] = useState(null);
 
-  // funzione per recupero prodotti con  parametri searchbar
-
   const fetchProductsList = (searchTerm = "", category = "") => {
     const params = {};
     if (searchTerm) params.search = searchTerm;
@@ -29,7 +27,7 @@ function ProductsProvider({ children }) {
 
     axios
       .get(`${backendUrl}equipments/${id}`)
-      .then((res) => setSearchedProduct(res.data))
+      .then((res) => setSearchedProduct(res.data.equipment))
       .catch((err) => console.error(err));
   };
 

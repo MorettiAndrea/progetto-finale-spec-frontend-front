@@ -1,17 +1,27 @@
-*{box-sizing: border-box;
-margin: 0;
-padding: 0;}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #222222 !important;
+}
 
 .nav-link.active {
-color:red !important;
+    color: red !important;
 }
 
-.no-decoration{
+.no-decoration {
     text-decoration: none;
-    color:black 
+    color: black;
 }
 
-.no-decoration:hover{
+.no-decoration:hover {
     color: red;
 }
-.fixed{position: sticky;}
+
+img {
+    max-width: 100%;
+}
+
