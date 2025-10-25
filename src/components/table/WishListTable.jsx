@@ -4,8 +4,7 @@ function WishListTable({ product }) {
   return (
     <tr>
       <td>{product.title}</td>
-      <td>{product.brand}</td>
-      <td>€ {product.price} </td>
+      <td>{product.category}</td>
     </tr>
   );
 }

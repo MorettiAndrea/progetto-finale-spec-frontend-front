@@ -17,7 +17,6 @@ export default function WishListModal() {
             <tr>
               <th>Nome</th>
               <th>Brand</th>
-              <th>Prezzo</th>
             </tr>
           </thead>
           <tbody>
@@ -41,9 +40,9 @@ export default function WishListModal() {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content shadow rounded-3">
           <div className="modal-header border-0">
-            <h5 className="modal-title w-100 text-center">
+            <h2 className="modal-title w-100 text-center text-danger">
               {wishList.length ? "I tuoi preferiti" : ""}
-            </h5>
+            </h2>
           </div>
           <div className="modal-body">{content}</div>
           <div className="modal-footer border-0 d-flex justify-content-center gap-2">

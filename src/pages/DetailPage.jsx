@@ -4,13 +4,12 @@ import { useProductsContext } from "../contexts/ProductsContext";
 import { useParams } from "react-router-dom";
 export default function DetailPage() {
   const { id } = useParams();
-  const { searchedProduct, setSearchedProduct, fetchProductById } =
-    useProductsContext();
+  const { searchedProduct, fetchProductById } = useProductsContext();
 
   useEffect(() => {
     fetchProductById(id);
   }, [id]);
-  console.log(searchedProduct);
+
   if (!searchedProduct) {
     return <p>Caricamento prodotto...</p>;
   }

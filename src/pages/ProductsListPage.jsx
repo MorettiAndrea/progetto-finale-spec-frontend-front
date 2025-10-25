@@ -1,5 +1,5 @@
 import { useSearchBarContext } from "../contexts/SearchBarContext";
-import ProductCard from "../components/cards/ProductCard";
+import ProductsCard from "../components/cards/ProductsCard";
 import { useState } from "react";
 
 export default function ProductsListPage() {
@@ -11,24 +11,13 @@ export default function ProductsListPage() {
 
   // placeholder funzioni da importare dai context
 
-  function onAddToWishlist() {
-    console.log("whislist");
-  }
-  function onAddToCompare() {
-    console.log("oncompare");
-  }
-
   return (
     <>
       <h1 className="text-center">Lista dei prodotti</h1>
       <div className="row mx-1">
         {searchedItems.map((p) => (
           <div className="col-12 col-md-6 col-lg-4 mb-4" key={p.id}>
-            <ProductCard
-              product={p}
-              onCompare={() => onAddToCompare(p)}
-              onAddToWishlist={() => onAddToWishlist(p)}
-            />
+            <ProductsCard product={p} />
           </div>
         ))}
       </div>

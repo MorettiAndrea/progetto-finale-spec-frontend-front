@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import { useWishListContext } from "../../contexts/WishListContext";
 
-function ProductCard({ product, onAddToWishlist, onCompare }) {
+function ProductsCard({ product }) {
+  const { wishListToggle } = useWishListContext();
   return (
     <div className="card h-100 shadow-sm border-light mx-1 rounded-1 bg-light text-dark">
       <div className="card-body d-flex flex-column">
@@ -15,14 +17,15 @@ function ProductCard({ product, onAddToWishlist, onCompare }) {
         <div className="d-flex flex-column flex-sm-row justify-content-between gap-2 mb-3">
           <button
             className="btn btn-outline-danger btn-sm flex-grow-1"
-            onClick={onAddToWishlist}
+            onClick={() => wishListToggle(product)}
           >
             ❤️ Aggiungi alla Wishlist
           </button>
 
           <button
             className="btn btn-outline-secondary btn-sm flex-grow-1"
-            onClick={onCompare}
+            // da sostituire con logica dell on compare
+            onClick={() => console.log("on compare")}
           >
             🔍 Aggiungi alla pagina di confronto
           </button>
@@ -39,4 +42,4 @@ function ProductCard({ product, onAddToWishlist, onCompare }) {
   );
 }
 
-export default React.memo(ProductCard);
+export default React.memo(ProductsCard);
