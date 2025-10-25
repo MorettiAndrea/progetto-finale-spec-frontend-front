@@ -24,9 +24,19 @@ function WishListProvider({ children }) {
     }
   };
 
+  const isInWishList = (product) => {
+    return wishList.some((p) => p.id === product.id);
+  };
   return (
     <WishListContext.Provider
-      value={{ wishList, setWishList, wishListToggle, showModal, setShowModal }}
+      value={{
+        wishList,
+        setWishList,
+        wishListToggle,
+        showModal,
+        setShowModal,
+        isInWishList,
+      }}
     >
       {children}
     </WishListContext.Provider>

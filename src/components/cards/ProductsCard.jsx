@@ -3,7 +3,7 @@ import React from "react";
 import { useWishListContext } from "../../contexts/WishListContext";
 
 function ProductsCard({ product }) {
-  const { wishListToggle } = useWishListContext();
+  const { isInWishList, wishListToggle } = useWishListContext();
   return (
     <div className="card h-100 shadow-sm border-light mx-1 rounded-1 bg-light text-dark">
       <div className="card-body d-flex flex-column">
@@ -19,7 +19,9 @@ function ProductsCard({ product }) {
             className="btn btn-outline-danger btn-sm flex-grow-1"
             onClick={() => wishListToggle(product)}
           >
-            ❤️ Aggiungi alla Wishlist
+            {isInWishList(product)
+              ? "❌ Rimuovi dalla Wishlist"
+              : "❤️ Aggiungi alla Wishlist"}
           </button>
 
           <button
