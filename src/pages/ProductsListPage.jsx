@@ -11,11 +11,11 @@ export default function ProductsListPage() {
 
   // placeholder funzioni da importare dai context
 
-  function onAddToWishlist(product) {
-    setWhisList((prev) => [...prev, product]);
+  function onAddToWishlist() {
+    console.log("whislist");
   }
-  function onAddToCompare(product) {
-    setCompareList((prev) => [...prev, product]);
+  function onAddToCompare() {
+    console.log("oncompare");
   }
 
   return (

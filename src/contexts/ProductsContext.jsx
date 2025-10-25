@@ -10,6 +10,8 @@ function ProductsProvider({ children }) {
   const [productsList, setProductsList] = useState([]);
   const [searchedProduct, setSearchedProduct] = useState(null);
 
+  // funzione tutti prodotti con parametri dinamici,da stabilire con useState nella searchbar
+
   const fetchProductsList = (searchTerm = "", category = "") => {
     const params = {};
     if (searchTerm) params.search = searchTerm;
