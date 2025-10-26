@@ -5,11 +5,7 @@ const useWishListContext = () => useContext(WishListContext);
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-import { useProductsContext } from "./ProductsContext";
-
 function WishListProvider({ children }) {
-  const { productsList } = useProductsContext();
-
   // wishlist completa
 
   const [wishList, setWishList] = useState([]);
@@ -21,31 +17,31 @@ function WishListProvider({ children }) {
   // funzione singolo prodotto per avere più chiavi
 
   const fetchForWishList = async (id) => {
-    if (!id) return null;
+    if (!id) throw new Error("Errore durante la richiesta");
 
     try {
       const res = await axios.get(`${backendUrl}equipments/${id}`);
       return res.data.equipment;
     } catch (err) {
-      console.error(err);
+      console.error("Errore durante la richiesta", err.message);
+      return null;
     }
   };
 
   // funzione aggiunta/rimozione dal carrello
 
   const wishListToggle = async (product) => {
-    const findProduct = productsList.find((p) => p.id === product.id);
-    if (!findProduct) return;
+    const isProductInList = wishList.some((p) => p.id === product.id);
 
-    const productInList = wishList.find((p) => p.id === findProduct.id);
-
-    if (productInList) {
-      setWishList((prev) => prev.filter((p) => p.id !== findProduct.id));
+    if (isProductInList) {
+      setWishList((prev) => prev.filter((p) => p.id !== product.id));
     } else {
       const toAddProduct = await fetchForWishList(product.id);
       setWishList((prev) => [...prev, toAddProduct]);
     }
   };
+
+  // funzione per eliminazione dalla modale
 
   const deleteFromWishList = (product) => {
     setWishList((prev) => prev.filter((p) => p.id !== product.id));
