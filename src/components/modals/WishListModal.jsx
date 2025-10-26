@@ -15,8 +15,18 @@ export default function WishListModal() {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Nome</th>
-              <th>Brand</th>
+              <th>
+                <strong>Nome</strong>
+              </th>
+              <th>
+                <strong>Brand</strong>
+              </th>
+              <th>
+                <strong>Prezzo</strong>
+              </th>
+              <th>
+                <strong>Dettaglio prodotto</strong>
+              </th>
             </tr>
           </thead>
           <tbody>
