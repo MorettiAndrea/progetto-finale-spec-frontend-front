@@ -2,12 +2,9 @@
 import { NavLink } from "react-router-dom";
 
 // import contexts
+
 import { useSearchBarContext } from "../../contexts/SearchBarContext";
 import { useWishListContext } from "../../contexts/WishListContext";
-
-// import componenti
-
-import WishListModal from "../modals/WishListModal";
 
 // altri import
 
@@ -27,8 +24,7 @@ export default function Navbar() {
 
   // per  wishlist e show per modale wishlist
 
-  const { wishList, setWishList, wishListToggle, showModal, setShowModal } =
-    useWishListContext();
+  const { setShowModal } = useWishListContext();
 
   return (
     <>
@@ -89,13 +85,13 @@ export default function Navbar() {
                 onChange={(e) => setSearchedCategory(e.target.value)}
               >
                 <option value="">Tutte le categorie</option>
-                <option value="Kettlebell">Kettlebell</option>
-                <option value="Barra">Barra</option>
-                <option value="Palla medica">Palla medica</option>
+                <option value="Kettlebells">Kettlebells</option>
+                <option value="Barre">Barre</option>
+                <option value="Palle mediche">Palle mediche</option>
                 <option value="Anelli">Anelli</option>
-                <option value="Box Plyometrico">Box Plyometrico</option>
-                <option value="Corda">Corda</option>
-                <option value="Bilanciere">Bilanciere</option>
+                <option value="Box Plyometrici">Box Plyometrici</option>
+                <option value="Corde">Corde</option>
+                <option value="Bilancieri">Bilancieri</option>
                 <option value="Manubri">Manubri</option>
               </select>
 
@@ -114,7 +110,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <WishListModal />
     </>
   );
 }

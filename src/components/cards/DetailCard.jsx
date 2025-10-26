@@ -1,4 +1,7 @@
+import { useWishListContext } from "../../contexts/WishListContext";
+
 export default function DetailCard({ product, onAddToWishlist, onCompare }) {
+  const { wishListToggle, isInWishList } = useWishListContext();
   return (
     <div className="card mb-3 detail-card">
       <img
@@ -23,10 +26,12 @@ export default function DetailCard({ product, onAddToWishlist, onCompare }) {
 
         <div className="d-flex flex-column flex-sm-row gap-2 ">
           <button
-            className="btn btn-outline-danger btn-sm flex-fill"
-            onClick={onAddToWishlist}
+            className="btn btn-outline-danger btn-sm flex-grow-1"
+            onClick={() => wishListToggle(product)}
           >
-            ❤️ Aggiungi alla Wishlist
+            {isInWishList(product)
+              ? "❌ Rimuovi dalla Wishlist"
+              : "❤️ Aggiungi alla Wishlist"}
           </button>
 
           <button

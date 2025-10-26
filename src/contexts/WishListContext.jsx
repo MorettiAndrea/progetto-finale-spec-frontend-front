@@ -47,6 +47,10 @@ function WishListProvider({ children }) {
     }
   };
 
+  const deleteFromWishList = (product) => {
+    setWishList((prev) => prev.filter((p) => p.id !== product.id));
+  };
+
   // funzione per cambio messaggio del btn wishlist
 
   const isInWishList = (product) => {
@@ -62,6 +66,7 @@ function WishListProvider({ children }) {
         showModal,
         setShowModal,
         isInWishList,
+        deleteFromWishList,
       }}
     >
       {children}

@@ -4,7 +4,7 @@ import paths from "../../assets/data/paths";
 import { useWishListContext } from "../../contexts/WishListContext";
 
 function WishListTable({ product }) {
-  const { setShowModal } = useWishListContext();
+  const { setShowModal, deleteFromWishList } = useWishListContext();
   return (
     <tr>
       <td>{product.title}</td>
@@ -18,6 +18,14 @@ function WishListTable({ product }) {
         >
           Vai al dettaglio
         </Link>
+      </td>
+      <td>
+        <button
+          onClick={() => deleteFromWishList(product)}
+          className="btn btn-danger"
+        >
+          Elimina
+        </button>
       </td>
     </tr>
   );

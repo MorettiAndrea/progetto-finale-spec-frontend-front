@@ -27,6 +27,9 @@ export default function WishListModal() {
               <th>
                 <strong>Dettaglio prodotto</strong>
               </th>
+              <th className="text-danger">
+                <strong>Elimina prodotto</strong>
+              </th>
             </tr>
           </thead>
           <tbody>
