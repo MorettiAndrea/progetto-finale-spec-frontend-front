@@ -60,7 +60,13 @@ function CompareContextProvider({ children }) {
 
   return (
     <CompareContext.Provider
-      value={{ compareList, setCompareList, CompareToggle }}
+      value={{
+        compareList,
+        setCompareList,
+        CompareToggle,
+        deleteFromCompareList,
+        isInCompareList,
+      }}
     >
       {children}
     </CompareContext.Provider>
