@@ -6,7 +6,7 @@ export default function ProductsListPage() {
 
   return (
     <>
-      <h1 className="text-center">Lista dei prodotti</h1>
+      <h1 className="text-center text-white">Lista dei prodotti</h1>
       <div className="row mx-1">
         {searchedItems.map((p) => (
           <div className="col-12 col-md-6 col-lg-4 mb-4" key={p.id}>

@@ -1,10 +1,7 @@
-import { useProductsContext } from "../../contexts/ProductsContext";
 import { useCompareContext } from "../../contexts/CompareContext";
 import { Link } from "react-router-dom";
 
 export default function CompareCard({ product }) {
-  const { searchedProduct, fetchProductById } = useProductsContext();
-
   const { CompareToggle, isInCompareList } = useCompareContext();
 
   return (

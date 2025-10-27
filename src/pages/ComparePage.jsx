@@ -2,13 +2,7 @@ import { useCompareContext } from "../contexts/CompareContext";
 import CompareCard from "../components/cards/CompareCard";
 
 export default function ComparePage() {
-  const {
-    compareList,
-    setCompareList,
-    CompareToggle,
-    deleteFromCompareList,
-    isInCompareList,
-  } = useCompareContext();
+  const { compareList } = useCompareContext();
 
   if (!compareList.length)
     return (

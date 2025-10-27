@@ -12,6 +12,9 @@ img {
 }
 
 body {
+  background-image: url("../../../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #222222 !important;
   font-family: sans-serif;
 }
