@@ -12,6 +12,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { ProductsProvider } from "./contexts/ProductsContext.jsx";
 import { WishListProvider } from "./contexts/WishListContext.jsx";
 import { SearchBarProvider } from "./contexts/SearchBarContext.jsx";
+import { CompareContextProvider } from "./contexts/CompareContext.jsx";
 
 // altri import
 
@@ -23,22 +24,24 @@ export default function App() {
     <>
       <ProductsProvider>
         <WishListProvider>
-          <SearchBarProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route path={paths.notFoundPage} element={<NotFoundPage />} />
-                <Route element={<DefaultLayout />}>
-                  <Route path={paths.homePage} element={<HomePage />} />
-                  <Route path={paths.comparePage} element={<ComparePage />} />
-                  <Route
-                    path={paths.productsListPage}
-                    element={<ProductsListPage />}
-                  />
-                  <Route path={paths.detailPage} element={<DetailPage />} />
-                </Route>
-              </Routes>
-            </BrowserRouter>
-          </SearchBarProvider>
+          <CompareContextProvider>
+            <SearchBarProvider>
+              <BrowserRouter>
+                <Routes>
+                  <Route path={paths.notFoundPage} element={<NotFoundPage />} />
+                  <Route element={<DefaultLayout />}>
+                    <Route path={paths.homePage} element={<HomePage />} />
+                    <Route path={paths.comparePage} element={<ComparePage />} />
+                    <Route
+                      path={paths.productsListPage}
+                      element={<ProductsListPage />}
+                    />
+                    <Route path={paths.detailPage} element={<DetailPage />} />
+                  </Route>
+                </Routes>
+              </BrowserRouter>
+            </SearchBarProvider>
+          </CompareContextProvider>
         </WishListProvider>
       </ProductsProvider>
     </>

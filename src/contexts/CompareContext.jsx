@@ -16,7 +16,7 @@ function CompareContextProvider({ children }) {
   const fetchForCompare = async (id) => {
     if (!id) throw new Error("Errore durante la richiesta");
     try {
-      const res = await axios.get(`${backendUrl}/equipments${id}`);
+      const res = await axios.get(`${backendUrl}equipments/${id}`);
       return res.data.equipment;
     } catch (err) {
       console.error("errore durante la richiesta", err.message);

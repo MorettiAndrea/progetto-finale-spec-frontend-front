@@ -1,15 +1,8 @@
 import { useSearchBarContext } from "../contexts/SearchBarContext";
 import ProductsCard from "../components/cards/ProductsCard";
-import { useState } from "react";
 
 export default function ProductsListPage() {
   const { searchedItems } = useSearchBarContext();
-
-  // placeholder compare da creare da context
-
-  const [CompareList, setCompareList] = useState([]);
-
-  // placeholder funzioni da importare dai context
 
   return (
     <>

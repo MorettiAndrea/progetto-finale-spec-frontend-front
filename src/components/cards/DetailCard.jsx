@@ -1,7 +1,9 @@
 import { useWishListContext } from "../../contexts/WishListContext";
+import { useCompareContext } from "../../contexts/CompareContext";
 
-export default function DetailCard({ product, onAddToWishlist, onCompare }) {
+export default function DetailCard({ product }) {
   const { wishListToggle, isInWishList } = useWishListContext();
+  const { CompareToggle, isInCompareList } = useCompareContext();
   return (
     <div className="card mb-3 detail-card">
       <img
@@ -36,9 +38,11 @@ export default function DetailCard({ product, onAddToWishlist, onCompare }) {
 
           <button
             className="btn btn-outline-secondary btn-sm flex-fill"
-            onClick={onCompare}
+            onClick={() => CompareToggle(product)}
           >
-            🔍 Aggiungi alla pagina di confronto
+            {isInCompareList(product)
+              ? "❌ Rimuovi dalla pagina di confronto"
+              : "🔍 Aggiungi alla pagina di confronto"}
           </button>
         </div>
       </div>
