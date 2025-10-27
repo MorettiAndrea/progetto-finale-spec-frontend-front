@@ -15,7 +15,7 @@ export default function CompareCard({ product }) {
         <h5 className="card-title">{product.title}</h5>
 
         <p className="card-text mb-1">
-          <strong>Materiale:</strong> {product.material}
+          <strong>Materiale:</strong> {product.brand}
         </p>
         <p className="card-text mb-3">
           <strong>Prezzo:</strong> € {product.price}

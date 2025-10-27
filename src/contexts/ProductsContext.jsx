@@ -9,6 +9,7 @@ const useProductsContext = () => useContext(ProductsContext);
 function ProductsProvider({ children }) {
   const [productsList, setProductsList] = useState([]);
   const [searchedProduct, setSearchedProduct] = useState(null);
+  const [allCategories, setAllCategories] = useState([]);
 
   // funzione tutti prodotti con parametri dinamici,da stabilire con useState nella searchbar
 
@@ -23,6 +24,25 @@ function ProductsProvider({ children }) {
       .catch((err) => console.error(err));
   };
 
+  // Recupero tutte le categorie per la search
+
+  const extractCategories = async () => {
+    const categories = [];
+    try {
+      const response = await axios.get(`${backendUrl}equipments`);
+      if (!response) throw new Error("Ops! Qualcosa è andato storto");
+
+      response.data.forEach((p) => {
+        if (!categories.includes(p.category)) {
+          categories.push(p.category);
+        }
+      });
+      return categories;
+    } catch (err) {
+      console.error("Errore nel recupero delle categorie", err.message);
+    }
+  };
+
   // funzione per singolo prodotto
   const fetchProductById = (id) => {
     if (!id) return;
@@ -35,6 +55,7 @@ function ProductsProvider({ children }) {
 
   useEffect(() => {
     fetchProductsList();
+    extractCategories().then((cats) => setAllCategories(cats));
   }, []);
 
   return (
@@ -46,6 +67,8 @@ function ProductsProvider({ children }) {
         setSearchedProduct,
         fetchProductsList,
         fetchProductById,
+        extractCategories,
+        allCategories,
       }}
     >
       {children}

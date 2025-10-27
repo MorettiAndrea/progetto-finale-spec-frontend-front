@@ -1,4 +1,5 @@
 import { useSearchBarContext } from "../contexts/SearchBarContext";
+
 import ProductsCard from "../components/cards/ProductsCard";
 
 export default function ProductsListPage() {

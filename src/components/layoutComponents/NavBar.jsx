@@ -1,11 +1,12 @@
 // React import
 import { NavLink } from "react-router-dom";
-
+import { useState, useEffect } from "react";
 // import contexts
 
 import { useSearchBarContext } from "../../contexts/SearchBarContext";
 import { useWishListContext } from "../../contexts/WishListContext";
 import { useCompareContext } from "../../contexts/CompareContext";
+import { useProductsContext } from "../../contexts/ProductsContext";
 
 // altri import
 
@@ -27,6 +28,9 @@ export default function Navbar() {
 
   const { setShowModal } = useWishListContext();
   const { compareList } = useCompareContext();
+
+  // categorie per options aggiornate dinamicamente
+  const { allCategories } = useProductsContext();
 
   return (
     <>
@@ -86,15 +90,11 @@ export default function Navbar() {
                 value={searchedCategory}
                 onChange={(e) => setSearchedCategory(e.target.value)}
               >
-                <option value="">Tutte le categorie</option>
-                <option value="Kettlebells">Kettlebells</option>
-                <option value="Barre">Barre</option>
-                <option value="Palle mediche">Palle mediche</option>
-                <option value="Anelli">Anelli</option>
-                <option value="Box Plyometrici">Box Plyometrici</option>
-                <option value="Corde">Corde</option>
-                <option value="Bilancieri">Bilancieri</option>
-                <option value="Manubri">Manubri</option>
+                {allCategories.map((p, index) => (
+                  <option key={index} value={p}>
+                    {p}
+                  </option>
+                ))}
               </select>
 
               <select
