@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 
 import { useSearchBarContext } from "../../contexts/SearchBarContext";
 import { useWishListContext } from "../../contexts/WishListContext";
+import { useCompareContext } from "../../contexts/CompareContext";
 
 // altri import
 
@@ -25,6 +26,7 @@ export default function Navbar() {
   // per  wishlist e show per modale wishlist
 
   const { setShowModal } = useWishListContext();
+  const { compareList } = useCompareContext();
 
   return (
     <>
@@ -57,7 +59,7 @@ export default function Navbar() {
 
               <li className="nav-item">
                 <NavLink className="nav-link" to={paths.comparePage}>
-                  Confronta ora
+                  Confronta 2 articoli(selezionati {compareList.length})
                 </NavLink>
               </li>
               <li className="nav-item">

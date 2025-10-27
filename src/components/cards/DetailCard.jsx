@@ -25,6 +25,9 @@ export default function DetailCard({ product }) {
         <p className="card-text mb-3">
           <strong>Prezzo:</strong> € {product.price}
         </p>
+        <p className="card-text text-dark mb-3">
+          <strong>Descrizione: </strong> {product.description}
+        </p>
 
         <div className="d-flex flex-column flex-sm-row gap-2 ">
           <button
