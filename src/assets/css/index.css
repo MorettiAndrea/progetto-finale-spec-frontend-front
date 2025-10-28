@@ -32,6 +32,15 @@ body {
   color: red;
   zoom: 1.01;
 }
+.no-decoration-white {
+  text-decoration: none;
+  color: white;
+}
+
+.no-decoration-white:hover {
+  color: red;
+  zoom: 1.01;
+}
 
 /* FLEX CENTER */
 .d-center {

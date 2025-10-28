@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import DetailCard from "../components/cards/DetailCard";
 import { useProductsContext } from "../contexts/ProductsContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import paths from "../assets/data/paths";
 
 export default function DetailPage() {
   const { id } = useParams();
@@ -12,7 +13,18 @@ export default function DetailPage() {
   }, [id]);
 
   if (!searchedProduct) {
-    return <p>Caricamento prodotto...</p>;
+    return (
+      <>
+        <div className="container d-center">
+          <h2 className="text-center text-white my-5 ">
+            <Link className="no-decoration-white" to={paths.productsListPage}>
+              Prodotto non trovato clicca qui per tornare alla lista dei
+              prodotti
+            </Link>
+          </h2>
+        </div>
+      </>
+    );
   }
   return (
     <>
