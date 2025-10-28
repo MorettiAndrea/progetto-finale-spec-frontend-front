@@ -31,14 +31,12 @@ function CompareContextProvider({ children }) {
 
       if (isProductInList) {
         setCompareList((prev) => prev.filter((p) => p.id !== product.id));
-      } else if (!isProductInList && compareList.length < 2) {
+      } else if (!isProductInList) {
         const toAddProduct = await fetchForCompare(product.id);
 
         if (toAddProduct) {
           setCompareList((prev) => [...prev, toAddProduct]);
         }
-      } else {
-        alert("Massimo 2 prodotti selezionabili per la pagina di confronto");
       }
     } catch (err) {
       console.error("Errore durante la richiesta,", err.message);

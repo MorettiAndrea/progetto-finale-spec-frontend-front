@@ -14,13 +14,16 @@ export default function ComparePage() {
   return (
     <>
       <div className="container">
-        <div className="row">
-          <h1 className="text-center text-white">Pagina di comparazione</h1>;
-          <div className="col-12 d-center ">
-            {compareList.map((p) => (
-              <CompareCard key={p.id} product={p} />
-            ))}
-          </div>
+        <h1 className="text-center text-white my-5">Pagina di comparazione</h1>;
+        <div className="row d-center">
+          {compareList.map((p) => (
+            <>
+              {" "}
+              <div className="col-6 d-center ">
+                <CompareCard key={p.id} product={p} />{" "}
+              </div>
+            </>
+          ))}
         </div>
       </div>
     </>

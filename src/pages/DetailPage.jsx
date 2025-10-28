@@ -28,7 +28,7 @@ export default function DetailPage() {
   }
   return (
     <>
-      <h1 className="text-center">Sono la DetailPage</h1>
+      <h1 className="text-center text-white my-5">Dettaglio del prodotto</h1>
       <DetailCard product={searchedProduct} />
     </>
   );

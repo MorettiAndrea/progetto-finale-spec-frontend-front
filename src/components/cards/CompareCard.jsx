@@ -5,14 +5,16 @@ export default function CompareCard({ product }) {
   const { CompareToggle, isInCompareList } = useCompareContext();
 
   return (
-    <div className="card mb-3 detail-card mx-2">
+    <div className="card mb-3 detail-card mx-2 d-flex flex-column h-100">
       <img
         src={product.image}
         className="card-img-top compare-card-img"
         alt={product.title}
       />
       <div className="card-body d-flex flex-column border border-light-subtle grey-bg-card">
-        <h5 className="card-title">{product.title}</h5>
+        <h5 className="card-title">
+          <strong>{product.title}</strong>
+        </h5>
 
         <p className="card-text mb-1">
           <strong>Materiale:</strong> {product.brand}
@@ -33,8 +35,8 @@ export default function CompareCard({ product }) {
             onClick={() => CompareToggle(product)}
           >
             {isInCompareList(product)
-              ? "❌ Rimuovi dalla pagina di confronto"
-              : "🔍 Aggiungi alla pagina di confronto"}
+              ? "❌ Rimuovi dal confronto"
+              : "🔍 Aggiungi al confronto"}
           </button>
         </div>
       </div>
