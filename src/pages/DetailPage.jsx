@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import DetailCard from "../components/cards/DetailCard";
 import { useProductsContext } from "../contexts/ProductsContext";
 import { useParams } from "react-router-dom";
+
 export default function DetailPage() {
   const { id } = useParams();
   const { searchedProduct, fetchProductById } = useProductsContext();

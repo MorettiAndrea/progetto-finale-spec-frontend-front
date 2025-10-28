@@ -69,7 +69,7 @@ export default function Navbar() {
               <li className="nav-item">
                 <button
                   onClick={() => setShowModal(true)}
-                  className="btn btn-outline-danger"
+                  className="btn btn-outline-danger me-5"
                 >
                   ❤️ Wishlist
                 </button>
@@ -80,7 +80,7 @@ export default function Navbar() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Cerca un prodotto..."
+                placeholder="Cerca..."
                 value={searchedTerm}
                 onChange={(e) => setSearchedTerm(e.target.value)}
               />
@@ -90,6 +90,7 @@ export default function Navbar() {
                 value={searchedCategory}
                 onChange={(e) => setSearchedCategory(e.target.value)}
               >
+                <option value={""}>Seleziona una categoria</option>
                 {allCategories.map((p, index) => (
                   <option key={index} value={p}>
                     {p}

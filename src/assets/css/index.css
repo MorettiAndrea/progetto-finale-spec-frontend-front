@@ -25,11 +25,12 @@ body {
 
 .no-decoration {
   text-decoration: none;
-  color: black;
+  color: gray;
 }
 
 .no-decoration:hover {
   color: red;
+  zoom: 1.01;
 }
 
 /* FLEX CENTER */

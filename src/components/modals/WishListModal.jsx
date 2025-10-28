@@ -61,7 +61,7 @@ export default function WishListModal() {
           <div className="modal-footer border-0 d-flex justify-content-center gap-2">
             <button
               onClick={() => setShowModal(false)}
-              className="btn btn-outline-secondary"
+              className="btn btn-secondary"
             >
               Chiudi
             </button>
