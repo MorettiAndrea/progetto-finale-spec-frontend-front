@@ -1,8 +1,17 @@
+import { NavLink } from "react-router-dom";
+import HeroSection from "../components/layoutComponents/HeroSection";
+import paths from "../assets/data/paths";
+
 export default function HomePage() {
   return (
     <>
       <div className="container">
-        <h1 className="text-center text-white mt-5">Benvenuto in Bool Fit!</h1>
+        <h2 className="text-center my-5">
+          <NavLink className="no-decoration-white " to={paths.productsListPage}>
+            Visita la nostra sezione dei nostri attrezzi!
+          </NavLink>
+        </h2>
+        <HeroSection />
       </div>
     </>
   );

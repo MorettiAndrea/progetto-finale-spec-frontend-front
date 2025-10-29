@@ -1,20 +1,37 @@
-import { createContext, useContext, useState, useMemo, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useMemo,
+  useEffect,
+  useCallback,
+} from "react";
 import { useProductsContext } from "./ProductsContext";
 
 const SearchBarContext = createContext();
 const useSearchBarContext = () => useContext(SearchBarContext);
 
 function SearchBarProvider({ children }) {
+  // stati
   const { productsList, fetchProductsList } = useProductsContext();
   const [searchedTerm, setSearchedTerm] = useState("");
   const [searchedCategory, setSearchedCategory] = useState("");
   const [sortOrder, setSortOrder] = useState("");
 
+  // funzione debounce con callback
+
+  const debouncedFetchList = useCallback(() => {
+    fetchProductsList(searchedTerm, searchedCategory);
+  }, [searchedTerm, searchedCategory, fetchProductsList]);
+
   //   effect per aggiornare i categoria e nome cercati nella searchbar
 
   useEffect(() => {
-    fetchProductsList(searchedTerm, searchedCategory);
-  }, [searchedTerm, searchedCategory]);
+    const useDebouncedFetchList = setTimeout(() => {
+      debouncedFetchList();
+    }, 500);
+    return () => clearTimeout(useDebouncedFetchList);
+  }, [debouncedFetchList]);
 
   const searchedItems = useMemo(() => {
     let filteredProducts = [...productsList];

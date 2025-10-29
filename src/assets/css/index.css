@@ -18,6 +18,8 @@ body {
   font-family: sans-serif;
 }
 
+.hero-container{height: 300px;}
+
 /* NAV LINK */
 .nav-link.active {
   color: red !important;
