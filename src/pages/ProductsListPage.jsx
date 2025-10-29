@@ -7,7 +7,11 @@ export default function ProductsListPage() {
 
   return (
     <>
-      <h1 className="text-center text-white my-5">Lista dei prodotti</h1>
+      <h1 className="text-center text-white my-5">
+        {searchedItems.length
+          ? "Lista dei prodotti"
+          : "Nessun prodotto trovato"}
+      </h1>
       <div className="row mx-1">
         {searchedItems.map((p) => (
           <div className="col-12 col-md-6 col-lg-4 mb-4" key={p.id}>

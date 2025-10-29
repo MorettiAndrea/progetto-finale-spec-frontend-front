@@ -1,6 +1,6 @@
 // React import
-import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+
 // import contexts
 
 import { useSearchBarContext } from "../../contexts/SearchBarContext";
@@ -11,8 +11,10 @@ import { useProductsContext } from "../../contexts/ProductsContext";
 // altri import
 
 import paths from "../../assets/data/paths";
+import { useEffect } from "react";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   //  per searchbar
 
   const {
@@ -31,6 +33,16 @@ export default function Navbar() {
 
   // categorie per options aggiornate dinamicamente
   const { allCategories } = useProductsContext();
+
+  // porta sulla lista page da ogni parte del sito con su l'onclick
+
+  const handleSearchSubmit = (e) => {
+    const params = new URLSearchParams();
+    searchedTerm ? params.append("search", searchedTerm) : "";
+    searchedCategory ? params.append("category", searchedCategory) : "";
+    e.preventDefault();
+    navigate(`${paths.productsListPage}?${params}`);
+  };
 
   return (
     <>
@@ -76,7 +88,10 @@ export default function Navbar() {
               </li>
             </ul>
 
-            <form className="d-flex align-items-center gap-2">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="d-flex align-items-center gap-2"
+            >
               <input
                 type="text"
                 className="form-control"
@@ -84,6 +99,12 @@ export default function Navbar() {
                 value={searchedTerm}
                 onChange={(e) => setSearchedTerm(e.target.value)}
               />
+              <button
+                onSubmit={handleSearchSubmit}
+                className="btn btn-outline-secondary"
+              >
+                🔍
+              </button>
 
               <select
                 className="form-select"
