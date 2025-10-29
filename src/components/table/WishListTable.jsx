@@ -12,11 +12,11 @@ function WishListTable({ product }) {
       <td>€ {product.price}</td>
       <td>
         <Link
-          className="no-decoration"
+          className="no-decoration btn  btn-outline-secondary"
           onClick={() => setShowModal(false)}
           to={paths.detailPage.replace(":id", product.id)}
         >
-          Vai al dettaglio
+          <strong> 🔍 </strong>
         </Link>
       </td>
       <td>

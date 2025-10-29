@@ -6,8 +6,8 @@ export default function ComparePage() {
 
   if (!compareList.length)
     return (
-      <h1 className="text-center text-white">
-        Nessun prodotto selezionato per la pagina di comparazione
+      <h1 className="text-center text-white my-5">
+        Nessun prodotto selezionato per il confronto
       </h1>
     );
 

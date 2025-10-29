@@ -19,7 +19,7 @@ export default function WishListModal() {
                 <strong>Nome</strong>
               </th>
               <th>
-                <strong>Brand</strong>
+                <strong>Categoria</strong>
               </th>
               <th>
                 <strong>Prezzo</strong>
