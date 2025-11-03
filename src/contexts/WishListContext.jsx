@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 const WishListContext = createContext();
 const useWishListContext = () => useContext(WishListContext);
 
@@ -14,7 +14,24 @@ function WishListProvider({ children }) {
 
   const [showModal, setShowModal] = useState(false);
 
-  // funzione singolo prodotto per avere più chiavi
+  // localStorage
+
+  useEffect(() => {
+    const savedWishList = localStorage.getItem("wishlist");
+    if (savedWishList) {
+      try {
+        setWishList(JSON.parse(savedWishList));
+      } catch (error) {
+        console.error("Errore nel recupero dati da local storage:", error);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishList));
+  }, [wishList]);
+
+  // api singolo prodotto per avere più chiavi
 
   const fetchForWishList = async (id) => {
     if (!id) throw new Error("Errore durante la richiesta");
