@@ -35,7 +35,7 @@ function WishListProvider({ children }) {
     if (wishFromLocal) {
       localStorage.setItem("wishlist", JSON.stringify(wishList));
     }
-  }, [wishList, isLoaded]);
+  }, [wishList, wishFromLocal]);
 
   // api singolo prodotto per avere più chiavi
 
