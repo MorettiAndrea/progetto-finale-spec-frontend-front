@@ -1,7 +1,7 @@
 import { useCompareContext } from "../../contexts/CompareContext";
 import { Link } from "react-router-dom";
-
-export default function CompareCard({ product }) {
+import React from "react";
+function CompareCard({ product }) {
   const { CompareToggle, isInCompareList } = useCompareContext();
 
   return (
@@ -43,3 +43,4 @@ export default function CompareCard({ product }) {
     </div>
   );
 }
+export default React.memo(CompareCard);

@@ -14,22 +14,28 @@ function WishListProvider({ children }) {
 
   const [showModal, setShowModal] = useState(false);
 
-  // localStorage
+  // loader per local storage,evita conflitto con la strict mode di react
 
+  const [wishFromLocal, setWishFromLocal] = useState(false);
+
+  // localStorage
   useEffect(() => {
     const savedWishList = localStorage.getItem("wishlist");
     if (savedWishList) {
       try {
         setWishList(JSON.parse(savedWishList));
       } catch (error) {
-        console.error("Errore nel recupero dati da local storage:", error);
+        console.error(error);
       }
     }
+    setWishFromLocal(true);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("wishlist", JSON.stringify(wishList));
-  }, [wishList]);
+    if (wishFromLocal) {
+      localStorage.setItem("wishlist", JSON.stringify(wishList));
+    }
+  }, [wishList, isLoaded]);
 
   // api singolo prodotto per avere più chiavi
 

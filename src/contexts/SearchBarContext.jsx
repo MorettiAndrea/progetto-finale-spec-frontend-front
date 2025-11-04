@@ -20,18 +20,18 @@ function SearchBarProvider({ children }) {
 
   // funzione debounce con callback
 
-  const debouncedFetchList = useCallback(() => {
+  const fetchList = useCallback(() => {
     fetchProductsList(searchedTerm, searchedCategory);
   }, [searchedTerm, searchedCategory, fetchProductsList]);
 
   //   effect per aggiornare i categoria e nome cercati nella searchbar
 
   useEffect(() => {
-    const useDebouncedFetchList = setTimeout(() => {
-      debouncedFetchList();
+    const DebouncedFetchList = setTimeout(() => {
+      fetchList();
     }, 500);
-    return () => clearTimeout(useDebouncedFetchList);
-  }, [debouncedFetchList]);
+    return () => clearTimeout(DebouncedFetchList);
+  }, [fetchList]);
 
   const searchedItems = useMemo(() => {
     let filteredProducts = [...productsList];

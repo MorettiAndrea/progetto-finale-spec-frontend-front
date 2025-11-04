@@ -1,7 +1,8 @@
 import { useWishListContext } from "../../contexts/WishListContext";
 import { useCompareContext } from "../../contexts/CompareContext";
+import React from "react";
 
-export default function DetailCard({ product }) {
+function DetailCard({ product }) {
   const { wishListToggle, isInWishList } = useWishListContext();
   const { CompareToggle, isInCompareList } = useCompareContext();
   return (
@@ -52,3 +53,5 @@ export default function DetailCard({ product }) {
     </div>
   );
 }
+
+export default React.memo(DetailCard);
