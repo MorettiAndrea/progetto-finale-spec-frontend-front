@@ -96,6 +96,10 @@ max-height: 250px;
   }
 }
 
+.compare-body-small{
+  height: 300px;
+}
+
 /* RESPONSIVE  480PX */
 
 @media screen and (max-width: 480px) {

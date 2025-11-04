@@ -11,7 +11,7 @@ export default function CompareCard({ product }) {
         className="card-img-top compare-card-img"
         alt={product.title}
       />
-      <div className="card-body d-flex flex-column border border-light-subtle grey-bg-card">
+      <div className="card-body d-flex flex-column border border-light-subtle grey-bg-card compare-body-small">
         <h5 className="card-title">
           <strong>{product.title}</strong>
         </h5>
