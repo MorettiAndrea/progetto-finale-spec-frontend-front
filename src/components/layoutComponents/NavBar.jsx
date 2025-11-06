@@ -11,7 +11,6 @@ import { useProductsContext } from "../../contexts/ProductsContext";
 // altri import
 
 import paths from "../../assets/data/paths";
-import { useEffect } from "react";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -37,11 +36,13 @@ export default function Navbar() {
   // porta sulla lista page da ogni parte del sito con su l'onclick
 
   const handleSearchSubmit = (e) => {
+    e.preventDefault();
     const params = new URLSearchParams();
     searchedTerm ? params.append("search", searchedTerm) : "";
     searchedCategory ? params.append("category", searchedCategory) : "";
-    e.preventDefault();
-    navigate(`${paths.productsListPage}?${params}`);
+    if (searchedTerm || searchedCategory) {
+      navigate(`${paths.productsListPage}?${params}`);
+    }
   };
 
   return (
@@ -99,10 +100,7 @@ export default function Navbar() {
                 value={searchedTerm}
                 onChange={(e) => setSearchedTerm(e.target.value)}
               />
-              <button
-                onSubmit={handleSearchSubmit}
-                className="btn btn-outline-secondary"
-              >
+              <button type="submit" className="btn btn-outline-secondary">
                 🔍
               </button>
 
